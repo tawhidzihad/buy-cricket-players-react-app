@@ -14,7 +14,7 @@ function App() {
 	const [coins, setCoins] = useState(5000);
 
 	return (
-		<>
+		<div className="px-2 md:px-0">
 			<Navbar coins={coins}></Navbar>
 			<Suspense
 				fallback={
@@ -31,7 +31,7 @@ function App() {
 			</Suspense>
 
 			<ToastContainer></ToastContainer>
-		</>
+		</div>
 	);
 }
 
