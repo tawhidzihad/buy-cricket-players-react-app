@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./components/HomePage/Navbar/Navbar";
 import Players from "./components/HomePage/Players/Players";
 import { ToastContainer } from "react-toastify";
+import Banner from "./components/HomePage/Banner/Banner";
 
 const fetchPlayers = async () => {
 	const res = await fetch("/data.json");
@@ -11,11 +12,14 @@ const fetchPlayers = async () => {
 
 function App() {
 	const playersPromise = fetchPlayers();
-	const [coins, setCoins] = useState(5000);
+	const [coins, setCoins] = useState(1000);
+
+
 
 	return (
-		<div className="px-2 md:px-0">
+		<div className="px-2 md:px-0 max-w-7xl mx-auto">
 			<Navbar coins={coins}></Navbar>
+			<Banner coins={coins} setCoins={setCoins}></Banner>
 			<Suspense
 				fallback={
 					<div className="flex justify-center items-center min-h-screen">
